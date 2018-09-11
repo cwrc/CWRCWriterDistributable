@@ -6,7 +6,7 @@ See [CWRC-GitWriter](https://github.com/cwrc/CWRC-GitWriter) for documentation a
 
 This repository exists as a means to build a distributable version of the CWRC-Writer that can be included into the script tag of an html page like so:
 
-```
+```html
 <html>
     <body>
         <div id="cwrcWriterContainer" style="height: 100%; width: 100%;"></div>
@@ -20,7 +20,9 @@ where cwrcwriter.js contains the distributable CWRCWriter, and yourAppThatUsesTh
 
 The cwrc.js file will, when loaded in the script tag (as above), expose a constructor in global (window) scope:
 
-`window.CWRCWriter`
+```javascript
+window.CWRCWriter
+```
 
 Your code (in yourAppThatUsesTheCWRCWRiter.js) could then create a CWRCWriter like so:
 
@@ -44,7 +46,11 @@ writer.event('writerInitialized').subscribe(function() {
 
 When you want to get the document out of the CWRC-Writer (say to save it):
 
-`writer.getDocument()` which will return the string version of the document.
+```javascript
+writer.getDocument()
+``` 
+
+which will return the string version of the document.
 
 ### Config
 
