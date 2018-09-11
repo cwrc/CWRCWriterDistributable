@@ -18,35 +18,39 @@ This repository exists as a means to build a distributable version of the CWRC-W
 
 where cwrcwriter.js contains the distributable CWRCWriter, and yourAppThatUsesTheCWRCWRiter.js (or whatever you want to call your file or files) contains your code.
 
-The cwrc.js file will, when loaded in the scripty tag, expose a constructor in global (window) scope:
+The cwrc.js file will, when loaded in the script tag (as above), expose a constructor in global (window) scope:
 
-window.CWRCWriter
+`window.CWRCWriter`
 
-Your code (in yourAppThatUsesTheCWRCWRiter.js) would then create a CWRCWriter like so:
+Your code (in yourAppThatUsesTheCWRCWRiter.js) could then create a CWRCWriter like so:
 
+```javascript
 var writer = new CWRCWriter(config)
+````
 
 where the config file is described below in [Config](#config).
 
-The constructor will instantiate a CWRCWriter and add it into the DOM element whose id you list in the config (so you'll also have to include that element in the html page, like we did above):
+The constructor will instantiate a CWRCWriter and return it, and also add the HTML code for the editor into the DOM element whose id you list in the config (so you'll also have to include that element in the html page, like we did with the div above):
 
-```config.container = 'cwrcWriterContainer'```
+`config.container = 'cwrcWriterContainer'`
 
 You can then use the 'writerInitialized' event to do whatever needs doing after the CWRCWriter has finished initializing, like say loading a document:
  
+```javascript
 writer.event('writerInitialized').subscribe(function() {
     writer.setDocument(documentAsStringOrParsedXMLDocument)
 });
+```
 
 When you want to get the document out of the CWRC-Writer (say to save it):
 
-writer.getDocument() which will return the string version of the document.
+`writer.getDocument()` which will return the string version of the document.
 
 ### Config
 
 The CWRC-Writer is configured by passing in a config object to the constructor.   A sample config object is included in the [config.js file](/js/config.js)
 
-Some of the values that can be configured are:
+Some of the options that can be configured are:
 
 ##### Required Options
 
