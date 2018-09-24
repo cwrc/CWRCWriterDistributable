@@ -1,6 +1,3 @@
-// the dialogs with which the end user interacts, to load from and save to Github repositories
-const CWRCWriterStorageDialogs = require('cwrc-git-dialogs')['default'];
-
 // the dialogs with which the end user interacts, to lookup entities in public sources:
 const CWRCWriterDialogs = require('cwrc-public-entity-dialogs');
 
@@ -96,7 +93,6 @@ module.exports = {
     "container": container,
     "modules": modules,
     "entityLookupDialogs": CWRCWriterDialogs,
-    "storageDialogs": CWRCWriterStorageDialogs,
     "cwrcRootUrl": "",
     "validationUrl": validationURL,
     "schemas": schemas
