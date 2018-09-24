@@ -17,9 +17,15 @@
     </head>
     <body>
         <div id="cwrcWriterContainer" style="height: 100%; width: 100%;"></div>
-        <script type="text/javascript" src="build/cwrcwriter.js"></script>
+        <script type="text/javascript" src="js/config.js"></script>
+        <script type="text/javascript" src="js/cwrcwriter.js"></script>
         <script>
-
+            console.log(CWRCWriterConfig);
+            CWRCWriterConfig.cwrcRootUrl = './';
+            var writer = new CWRCWriter(CWRCWriterConfig);
+            writer.event('writerInitialized').subscribe(function() {
+                writer.showLoadDialog();
+            });
         </script>
     </body>
 </html>

@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/cwrc/CWRC-DevGitWriter#readme",
   "scripts": {
-    "build": "npm run clean && npm run copyfiles && npm run build:js",
+    "build": "npm run clean && npm run copyfiles && npm run build:config && npm run build:js",
     "clean": "rimraf build",
     "cm": "git-cz",
     "copyfiles": "npm run copy:images && npm run copy:css && npm run copy:html && npm run copy:xml",
@@ -30,7 +30,8 @@
     "copy:css": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/css/**/*\" build/",
     "copy:html": "copyfiles -u 3 \"node_modules/cwrc-writer-base/src/html/*\" build/ && copyfiles -f src/html/index.html build/",
     "copy:xml": "copyfiles -u 5 \"node_modules/cwrc-writer-base/src/js/schema/*/xml/*\" build/schema/",
-    "build:js": "mkdirp build/js && browserify src/js/app.js --debug --verbose -g babelify -g deamdify --standalone CWRCWriter -o build/cwrcwriter.js ",
+    "build:js": "mkdirp build/js && browserify src/js/app.js --verbose -g babelify -g deamdify --standalone CWRCWriter -o build/js/cwrcwriter.js",
+    "build:config": "mkdirp build/js && browserify src/js/config.js --verbose -g babelify -g deamdify --standalone CWRCWriterConfig -o build/js/config.js",
     "watch": "watchify src/js/app.js --debug -o build/js/app.js --verbose -g babelify -g deamdify"
   },
   "babel": {
